@@ -1,57 +1,34 @@
-# Spring-Boot-app-Bajaj
-🚀 Bajaj Finserv Health – Programming Challenge (Spring Boot Project)
-This project is a Spring Boot application built for the Bajaj Finserv Health Hiring Challenge (April 25th–30th, 2025). The application is designed to interact with a remote API immediately on startup without requiring any manual HTTP trigger or REST controller.
+# 🏥 Bajaj Finserv Health – Spring Boot Challenge
 
-🧠 Problem Statement
-The app automatically:
+A Spring Boot application developed for the Bajaj Finserv Health Hiring Challenge (April 2025). The app runs logic automatically on startup—no manual trigger required.
 
-Calls the /generateWebhook endpoint on startup.
+## 🚀 Features
 
-Processes a given problem (based on the registration number).
+- Auto API call to `/generateWebhook` on startup
+- Solves the assigned problem (Mutual Followers or Nth-Level Followers)
+- Posts result to a secured webhook using JWT Authorization
+- Retry mechanism on webhook failure (up to 4 attempts)
+- No REST controller or manual endpoints
 
-Sends the processed output to a provided webhook using JWT authentication.
+## 🔍 Problem Summary
 
-🔍 Assigned Problem (Question 1: Mutual Followers)
-Given a list of users and the people they follow, the app identifies pairs of users who mutually follow each other, i.e., both follow each other back. Only direct 2-node cycles are considered and outputted in [minId, maxId] format.
+### 📌 Question 1 – Mutual Followers
 
-📦 Features
-Automatic API call at startup using RestTemplate.
+Identify mutual follow pairs (2-node cycles) in the format `[minId, maxId]`.
 
-JSON parsing and logic execution without any external trigger.
+### 📌 Question 2 – Nth-Level Followers
 
-JWT-based authorization for secure webhook POST.
+Given a user ID and level `n`, return all user IDs exactly `n` levels away in the follow graph.
 
-Retry mechanism (up to 4 times) for webhook delivery upon failure.
+## 🛠️ Tech Stack
 
-🛠️ Tech Stack
-Java
+- Java 17+
+- Spring Boot
+- Maven
+- RestTemplate
 
-Spring Boot
+## 🧪 How to Run
 
-RestTemplate
-
-Maven
-
-🧪 How It Works
-On app startup, a POST request is sent to generate a webhook.
-
-The response contains:
-
-Webhook URL
-
-JWT Access Token
-
-Problem-specific input data
-
-The app processes the problem:
-
-If the registration number ends in an odd digit → Mutual Followers logic (Question 1).
-
-The solution is sent to the webhook using the access token.
-
-📤 Submission Includes
-✅ Full project code
-
-✅ Final JAR output
-
-✅ Raw downloadable JAR link via GitHub
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
